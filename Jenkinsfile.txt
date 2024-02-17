@@ -11,8 +11,8 @@ pipeline {
             steps {
                 script {
            
-                        sh "terraform init"
-                        sh "terraform apply -auto-approve"
+                        bash "terraform init"
+                        bash "terraform apply -auto-approve"
         
                 }
             }
@@ -21,9 +21,9 @@ pipeline {
             steps {
                 script {
          
-                        sh "aws eks update-kubeconfig --name myapp-eks-cluster"
-                        sh "kubectl apply -f nginx-deployment.yaml"
-                        sh "kubectl apply -f nginx-service.yaml"
+                        bash "aws eks update-kubeconfig --name myapp-eks-cluster"
+                        bash "kubectl apply -f nginx-deployment.yaml"
+                        bash "kubectl apply -f nginx-service.yaml"
          
                 }
             }
